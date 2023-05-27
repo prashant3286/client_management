@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Client Listing</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Profile Image</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <!-- Add more columns if needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td><img src="{{ client.profile_image.url }}" alt="{{ client.name }}'s Profile Image"></td>
+                    <td>{{ client.gender }}</td>
+                    <td>{{ client.phone }}</td>
+                    <!-- Add more columns if needed -->
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No clients found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
