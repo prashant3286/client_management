@@ -56,7 +56,7 @@ ROOT_URLCONF = 'client_management.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates/clients'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
