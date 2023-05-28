@@ -22,8 +22,8 @@ This is a Django-based application for managing clients.
 ## Usage
 
 - Access the login page: `/login`
-- Create a new client: `/create`
-- View the client listing: `/clients`
+- Create a new client: `/create-client`
+- View the client listing: `/client-listing`
 
 ## Dependencies
 
