@@ -41,4 +41,13 @@ def client_listing(request):
     return render(request, 'client_listing.html', {'page_obj': page_obj, 'search_query': search_query})
 
 
-
+def signup(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)
+            return render(request, 'login.html')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'signup.html', {'form': form})
