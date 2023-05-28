@@ -11,6 +11,8 @@ This is a Django-based application for managing clients.
 
 ## Installation
 
+` Please Create Virtual Environment and install all the dependencies inside virtualenv`
+
 1. Clone the repository: `git clone https://github.com/your-username/client-management.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
 3. Configure the database settings in `client_management/settings.py`
