@@ -5,6 +5,8 @@ from .models import Client
 from .forms import ClientForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login as auth_login
 
+def home(request):
+    return render(request, 'login.html')
 
 def login(request):
     if request.method == 'POST':
@@ -13,7 +15,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-             return render(request, 'home.html')
+             return render(request, 'create_client.html' )
         else:
             return render(request, 'login.html', {'error': 'Invalid credentials'})
 
@@ -28,7 +30,8 @@ def create_client(request):
             return redirect('client_listing')
     else:
         form = ClientForm()
-    return render(request, 'create_client.html', {'form': form})
+        context = {'form': form}
+    return render(request, 'create_client.html', context)
 
 
 def client_listing(request):
