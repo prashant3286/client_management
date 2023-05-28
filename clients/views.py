@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .models import Client
 from .forms import ClientForm, CustomUserCreationForm
@@ -13,12 +13,12 @@ def login(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, user)
-            return redirect('client_listing')
+             return render(request, 'home.html')
         else:
             return render(request, 'login.html', {'error': 'Invalid credentials'})
 
     return render(request, 'login.html')
+
 
 def create_client(request):
     if request.method == 'POST':
@@ -29,6 +29,7 @@ def create_client(request):
     else:
         form = ClientForm()
     return render(request, 'create_client.html', {'form': form})
+
 
 def client_listing(request):
     search_query = request.GET.get('search_query')
